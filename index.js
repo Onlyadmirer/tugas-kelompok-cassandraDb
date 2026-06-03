@@ -1,4 +1,4 @@
-const client = require("./db");
+const { client, initializeSchema } = require("./db");
 const {
   insertDummyData,
   getLatestData,
@@ -10,6 +10,7 @@ async function runApplication() {
     await client.connect();
     console.log(" Terhubung ke cluster Cassandra!");
 
+    await initializeSchema();
     await insertDummyData();
     await getLatestData("Sensor-A", 10);
     await testInvalidQuery();

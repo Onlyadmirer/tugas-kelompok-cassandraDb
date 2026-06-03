@@ -1,4 +1,4 @@
-const client = require("./db");
+const { client } = require("./db");
 
 // Fungsi untuk memasukkan data dummy
 async function insertDummyData() {
